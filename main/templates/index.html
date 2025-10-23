@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flask Lab Project</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Flask Lab Project</h1>
+        <p class="subtitle">Simple Data Management Application</p>
+      </header>
+
+      <main>
+        <!-- Health Check Section -->
+        <section class="card">
+          <h2>Health Check</h2>
+          <button id="healthBtn" class="btn btn-primary">
+            Check Application Status
+          </button>
+          <div id="healthResult" class="result-box hidden"></div>
+        </section>
+
+        <!-- POST Data Section -->
+        <section class="card">
+          <h2>Submit Data</h2>
+          <form id="dataForm">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Enter your message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit Data</button>
+          </form>
+          <div id="postResult" class="result-box hidden"></div>
+        </section>
+
+        <!-- GET Data Section -->
+        <section class="card">
+          <h2>View All Data</h2>
+          <button id="getDataBtn" class="btn btn-info">Load Data</button>
+          <div id="dataTable" class="data-table hidden">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+          <div id="noData" class="message-box hidden">No data available</div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Flask Lab Project. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
